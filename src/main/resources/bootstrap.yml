@@ -1,0 +1,39 @@
+server:
+  port: 18849
+  servlet:
+    context-path: /${spring.application.name}
+    encoding:
+      force: true
+      charset: UTF-8
+      enabled: true
+    session:
+      cookie:
+        name: sentinel_dashboard_cookie
+
+# 服务 注册发现与配置
+spring:
+  application:
+    name: sentinel-dashboard
+  profiles:
+    active: dev # 环境
+  cloud:
+    service-registry:
+      auto-registration:
+        enabled: true # 是否注册到注册中心
+    # 服务发现与配置
+    nacos:
+      discovery:
+        enabled: true
+        server-addr: localhost:18848 # nacos地址
+      config:
+        server-addr: ${spring.cloud.nacos.discovery.server-addr}
+        file-extension: yaml # 文件后缀名
+
+logging:
+  level:
+    org.springframework.web: info
+  file:
+    name: ./logs/sentinel-dashboard.log
+  pattern:
+    dateformat: MM-dd HH:mm:ss:SSS
+

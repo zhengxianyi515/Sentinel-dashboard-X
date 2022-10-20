@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.alibaba.csp.sentinel.dashboard.orm.mapper.RuleMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.alibaba.csp.sentinel.dashboard.orm.entity.Rule">
+        <id column="id" property="id" />
+        <result column="app" property="app" />
+        <result column="rule_type" property="ruleType" />
+        <result column="rule_content" property="ruleContent" />
+        <result column="ip" property="ip" />
+        <result column="port" property="port" />
+        <result column="content" property="content" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+    </resultMap>
+
+    <select id="findAllByMachine" parameterType="map" resultType="com.alibaba.csp.sentinel.dashboard.orm.entity.Rule">
+        select * from sentinel_rule
+        where 1=1
+        <if test="app != null and app != ''"> and app = #{app}</if>
+        <if test="appType != null and appType != ''"> and app_type = #{appType}</if>
+        <if test="ruleType != null and ruleType != ''"> and rule_type = #{ruleType}</if>
+        <if test="ip != null and ip != ''">
+            and (
+                ip is null or trim(ip) = '' or (
+                    ip = #{ip}
+                    <if test="port != null and port != ''"> and port = #{port}</if>
+                )
+            )
+        </if>
+    </select>
+</mapper>

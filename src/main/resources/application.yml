@@ -1,0 +1,46 @@
+
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/uaa?useSSL=false
+    username: root
+    password: 123456
+#  shardingsphere:
+#    sharding:
+#      default-database-strategy:
+#      tables:
+#      discovery:
+#        cluster-name: HZ
+
+mybatis-plus:
+#  mapper-locations: classpath*:com/alibaba/csp/sentinel/dashboard/order/*Mapper.xml
+  mapper-locations: classpath*:mapper/*Mapper.xml
+  type-aliases-package: com.alibaba.csp.sentinel.dashboard.order.entity
+  configuration:
+    map-underscore-to-camel-case: true
+
+#auth settings
+auth:
+  filter:
+    exclude-urls: /,/auth/login,/auth/logout,/registry/machine,/version
+    exclude-url-suffixes: htm,html,js,css,map,ico,ttf,woff,png
+  # If auth.enabled=false, Sentinel console disable login
+  username: sentinel
+  password: sentinel
+
+  # Inject the dashboard version. It's required to enable
+  # filtering in pom.xml for this resource file.
+
+sentinel:
+  dashboard:
+    version: 1.8.5
+#    heartbeat:
+#      api:
+#        path: #servletcontext
+
+# nacos 规则存储配置
+nacos:
+  address: localhost:18848
+  namespace:
+  groupId:

@@ -1,4 +1,4 @@
-# Sentinel-dashboard-X 实现分Sentinel高可用及规则持久
+# Sentinel-dashboard-X 实现Sentinel高可用及规则数据持久化
 
 对于流控规则持久化，社区比较流行采用nacos进行配置管理，但实际上nacos配置最终还是存储在mysql等数据库config_info表中。
 

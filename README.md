@@ -31,4 +31,12 @@
 - 8、支持规则持久化到nacos。按官方指导已实现DynamicRuleProvider，DynamicRulePublisher，需改造controller，与InMem*Store配合使用，参考 FlowControllerV2。
 
 ## sentinel
-[sentinel源码](https://github.com/alibaba/Sentinel)
+- [sentinel源码](https://github.com/alibaba/Sentinel)
+- [Sentinel-dashboard源码](https://github.com/alibaba/Sentinel/tree/master/sentinel-dashboard)
+- [Sentinel-dashboard-X源码](https://github.com/zhengxianyi515/Sentinel-dashboard-X)
+
+## 界面截图
+- 全部流控规则<img src="https://github.com/zhengxianyi515/Sentinel-dashboard-X/blob/main/doc/flow-rules.JPG"/>
+- 主机流控规则<img src="https://github.com/zhengxianyi515/Sentinel-dashboard-X/blob/main/doc/flow-rules-host.JPG"/>
+- 系统规则<img src="https://github.com/zhengxianyi515/Sentinel-dashboard-X/blob/main/doc/system-rules.JPG"/>
+- 实时监控<img src="https://github.com/zhengxianyi515/Sentinel-dashboard-X/blob/main/doc/metric.JPG"/>

@@ -23,12 +23,13 @@
 ## 特性
 - 1、支持应用规则rule，监控数据metric持久化到数据库。
 - 2、dashboard只是一个控制台，规则存放在数据库表中，内存消耗少，且支持负载均衡，水平扩展。
-- 3、支持从dashoard发布规则实时同步和手工同步按钮推送到sentinel客户端。
-- 4、支持全局规则(app级)配置及同步。配置【资源主机】为全部或空，则规则适用于app所有实例主机，并同步规则到所有主机。网关流控规则暂未实现。
-- 5、支持app【资源主机】级流规则流控和同步。可单独对资源主机（ip + port）进行流控规则设置。
-- 6、实时监控界面优化，增加查询区间。原来只查当前一分钟，左侧图表区间太小。
-- 7、支持作为服务注册到nacos和从nacos获取dashboard配置
-- 8、支持规则持久化到nacos。按官方指导已实现DynamicRuleProvider，DynamicRulePublisher，需改造controller，与InMem*Store配合使用，参考 FlowControllerV2。
+- 3、支持从dashoard发布规则实时推送到相应的sentinel客户端。
+- 4、支持界面手动同步规则到全部或指定主机，应用程序第一次连接dashboard时自动同步所有规则。
+- 5、支持全局规则(app级)配置及同步。配置【资源主机】为全部或空，则规则适用于app所有实例主机，并同步规则到所有主机。网关流控规则暂未实现。
+- 6、支持app【资源主机】级流规则流控和同步。可单独对资源主机（ip + port）进行流控规则设置。
+- 7、实时监控界面优化，增加查询区间。原来只查当前一分钟，左侧图表区间太小。
+- 8、支持作为服务注册到nacos和从nacos获取dashboard配置
+- 9、支持规则持久化到nacos。按官方指导已实现DynamicRuleProvider，DynamicRulePublisher，需改造controller，与InMem*Store配合使用，参考 FlowControllerV2。
 
 ## sentinel
 - [sentinel源码](https://github.com/alibaba/Sentinel)
